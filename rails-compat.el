@@ -32,10 +32,12 @@
 (when (fboundp 'indent-and-complete)
   (message "WARNNING: the `indent-and-complete' already defined."))
 
+
 (defun indent-and-complete ()
   "Indent line and Complete if point is at end of left a leave word."
   (interactive)
 
+  (cond
    ;; completion-ui
    ((and (fboundp 'completion-overlay-at-point)
          (completion-overlay-at-point))
@@ -56,7 +58,6 @@
 
   ;; always indent line
   (indent-for-tab-command))
-
 
 (when (fboundp 'try-complete-abbrev)
   (message "WARRNING: the function `try-complete-abbrev' already defined"))
