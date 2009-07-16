@@ -48,6 +48,7 @@
 
 (require 'inflections)
 
+(require 'string-ext)
 (require 'rails-compat)
 (require 'rails-project)
 
@@ -487,10 +488,10 @@ necessary."
             (modify-syntax-entry ?: "w" (syntax-table))
             (modify-syntax-entry ?_ "w" (syntax-table))
             ;(local-set-key (kbd "C-.") 'complete-tag)
-	    (if rails-indent-and-complete
-		(local-set-key (if rails-use-another-define-key
-				   (kbd "TAB") (kbd "<tab>"))
-			       'indent-and-complete))
+	    ;; (if rails-indent-and-complete
+	    ;;     (local-set-key (if rails-use-another-define-key
+	    ;;     		   (kbd "TAB") (kbd "<tab>"))
+	    ;;     	       'indent-and-complete))
             (local-set-key (rails-key "f") '(lambda()
                                               (interactive)
                                               (mouse-major-mode-menu (rails-core:menu-position))))
@@ -508,10 +509,10 @@ necessary."
             (rails-project:with-root
              (root)
              (progn
-	       (if rails-indent-and-complete
-		   (local-set-key (if rails-use-another-define-key
-				      (kbd "TAB") (kbd "<tab>"))
-				  'indent-and-complete))
+	       ;; (if rails-indent-and-complete
+	       ;;     (local-set-key (if rails-use-another-define-key
+	       ;;  		      (kbd "TAB") (kbd "<tab>"))
+	       ;;  		  'indent-and-complete))
                (rails-minor-mode t)
                (rails-apply-for-buffer-type)))))
 

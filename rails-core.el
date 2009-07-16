@@ -787,4 +787,53 @@ the Rails minor mode log."
   "Return non nil if spec directory is exist."
   (file-exists-p (rails-core:file "spec")))
 
+;;; ---------------------------------------------------------
+;;; - Snippet support functions
+;;;
+
+(defun rails/controller? ()
+  (eq (rails-core:buffer-type) :controller))
+
+(defun rails/model-spec? ()
+  (eq (rails-core:buffer-type) :model-spec))
+
+(defun rails/controller-spec? ()
+  (eq (rails-core:buffer-type) :controller-spec))
+
+(defun rails/view-spec? ()
+  (eq (rails-core:buffer-type) :view-spec))
+
+(defun rails/helper-spec? ()
+  (eq (rails-core:buffer-type) :helper-spec))
+
+(defun rails/factory-spec? ()
+  (eq (rails-core:buffer-type) :factory-spec))
+
+(defun rails/model? ()
+  (eq (rails-core:buffer-type) :model))
+
+(defun rails/unit-test? ()
+  (eq (rails-core:buffer-type) :unit-test))
+
+(defun rails/unit-test-mailer? ()
+  (eq (rails-core:buffer-type) :unit-test-mailer))
+
+(defun rails/functional-test? ()
+  (eq (rails-core:buffer-type) :functional-test))
+
+(defun rails/fixture? ()
+  (eq (rails-core:buffer-type) :fixture))
+
+(defun rails/helper? ()
+  (eq (rails-core:buffer-type) :helper))
+
+(defun rails/migration? ()
+  (eq (rails-core:buffer-type) :migration))
+
+(defun rails/cur-res-title ()
+  (or (rails-core:current-controller)
+      (rails-core:current-model)
+      (rails-core:current-mailer)
+      ))
+
 (provide 'rails-core)

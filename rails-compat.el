@@ -33,7 +33,7 @@
   (message "WARNNING: the `indent-and-complete' already defined."))
 
 
-(defun indent-and-complete ()
+(defun indent-and-complete2 ()
   "Indent line and Complete if point is at end of left a leave word."
   (interactive)
 
