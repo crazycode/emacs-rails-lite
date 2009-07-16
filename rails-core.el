@@ -831,9 +831,10 @@ the Rails minor mode log."
   (eq (rails-core:buffer-type) :migration))
 
 (defun rails/cur-res-title ()
-  (or (rails-core:current-controller)
-      (rails-core:current-model)
-      (rails-core:current-mailer)
-      ))
+  (downcase
+   (or (rails-core:current-controller)
+       (rails-core:current-model)
+       (rails-core:current-mailer)
+       )))
 
 (provide 'rails-core)
