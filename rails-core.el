@@ -137,10 +137,10 @@ it does not exist, ask to create it using QUESTION as a prompt."
   "Return the path to the controller CONTROLLER-NAME."
   (when controller-name
     (let* ((basename (rails-core:file-by-class (rails-core:short-controller-name controller-name) t))
-	   (exact (concat "app/controllers/" basename ".rb")))
+           (exact (concat "app/controllers/" basename ".rb")))
       (if (file-exists-p (rails-core:file exact))
-	exact
-	(concat "app/controllers/" basename "_controller.rb")))))
+        exact
+        (concat "app/controllers/" basename "_controller.rb")))))
 
 (defun rails-core:controller-exist-p (controller-name)
   "Return t if controller CONTROLLER-NAME exist."
@@ -698,15 +698,15 @@ the Rails minor mode log."
 ;; fixup emacs-rails menu specs to work with tmm-prompt
 (defun rails-core:tmm-menu (menu)
   (symbol-name (tmm-prompt (cons (car menu)
-				 (mapcar (lambda (pane)
-					   (cons (car pane)
-						 (mapcar (lambda (item)
-							   (if (symbolp (cdr item))
-							       item
-							     (cons (car item)
-								   (intern (cdr item)))))
-							 (cdr pane))))
-					 (cdr menu))))))
+                                 (mapcar (lambda (pane)
+                                           (cons (car pane)
+                                                 (mapcar (lambda (item)
+                                                           (if (symbolp (cdr item))
+                                                               item
+                                                             (cons (car item)
+                                                                   (intern (cdr item)))))
+                                                         (cdr pane))))
+                                         (cdr menu))))))
 
 (defun rails-core:ido-menu (menu)
   (let* ((prompt (car (car (cdr menu))))
@@ -795,19 +795,19 @@ the Rails minor mode log."
   (eq (rails-core:buffer-type) :controller))
 
 (defun rails/model-spec? ()
-  (eq (rails-core:buffer-type) :model-spec))
+  (eq (rails-core:buffer-type) :rspec-model))
 
 (defun rails/controller-spec? ()
-  (eq (rails-core:buffer-type) :controller-spec))
+  (eq (rails-core:buffer-type) :rspec-controller))
 
 (defun rails/view-spec? ()
-  (eq (rails-core:buffer-type) :view-spec))
+  (eq (rails-core:buffer-type) :rspec-view))
 
 (defun rails/helper-spec? ()
-  (eq (rails-core:buffer-type) :helper-spec))
+  (eq (rails-core:buffer-type) :rspec-helper))
 
 (defun rails/factory-spec? ()
-  (eq (rails-core:buffer-type) :factory-spec))
+  (eq (rails-core:buffer-type) :rspec-factory))
 
 (defun rails/model? ()
   (eq (rails-core:buffer-type) :model))
